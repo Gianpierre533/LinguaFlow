@@ -14,3 +14,48 @@
 - [ ] Después de registrarse correctamente, el estudiante puede iniciar sesión.
 
 **Prioridad:** MVP
+
+## HU-02 - Inicio de sesión
+
+**Como** estudiante
+**Quiero** iniciar sesión en LinguaFlow
+**Para** acceder a mi cuenta y continuar mis prácticas de idiomas y continuar mi progreso.
+
+### Criterios de aceptación
+
+- [ ] El estudiante puede acceder al formulario de inicio de sesión.
+- [ ] El estudiante puede proporcionar sus credenciales para iniciar sesión.
+- [ ] El sistema valida que las credenciales correspondan a una cuenta registrada.
+- [ ] Después de iniciar sesión correctamente, el estudiante puede acceder a sus actividades y progreso.
+
+**Prioridad:** MVP
+
+## HU-03 - Selección de idioma y nivel
+
+**Como** estudiante
+**Quiero** Escoger el idioma para practicar y el nivel en el que estoy.
+**Para** Empezar a practicar el idioma que deseo con el nivel adecuado en el que me encuentro.
+
+### Criterios de aceptación
+
+- [ ] El estudiante puede seleccionar un idioma disponible para practicar.
+- [ ] El estudiante puede seleccionar su nivel actual para el idioma elegido.
+- [ ] El sistema valida que el estudiante haya seleccionado un idioma y un nivel antes de continuar.
+- [ ] El sistema guarda la selección realizada en el perfil del estudiante.
+
+**Prioridad:** MVP
+
+## HU-04 - Evaluación de nivel
+
+**Como** estudiante  
+**Quiero** realizar una evaluación de nivel  
+**Para** conocer mi nivel real de dominio del idioma y saber si corresponde con el nivel que seleccioné.
+
+### Criterios de aceptación
+
+- [ ] El estudiante puede iniciar la evaluación.
+- [ ] El estudiante responde una serie de preguntas adaptadas al idioma y nivel seleccionado.
+- [ ] El sistema registra y analiza las respuestas del estudiante.
+- [ ] El sistema obtiene un nivel estimado a partir de los resultados de la evaluación.
+- [ ] El sistema compara el nivel estimado con el nivel seleccionado por el estudiante.
+- [ ] El sistema muestra al estudiante el resultado de la evaluación.
