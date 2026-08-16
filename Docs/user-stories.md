@@ -59,3 +59,21 @@
 - [ ] El sistema obtiene un nivel estimado a partir de los resultados de la evaluación.
 - [ ] El sistema compara el nivel estimado con el nivel seleccionado por el estudiante.
 - [ ] El sistema muestra al estudiante el resultado de la evaluación.
+
+**Prioridad:** MVP
+
+## HU-05 - Realizar una lección
+
+**Como** estudiante  
+**Quiero** realizar una lección compuesta por diferentes ejercicios  
+**Para** practicar y mejorar mis habilidades en el idioma seleccionado.
+
+### Criterios de aceptación
+
+- [ ] El estudiante puede iniciar una lección correspondiente al idioma y nivel seleccionado.
+- [ ] El sistema muestra los ejercicios que componen la lección.
+- [ ] El estudiante puede responder los ejercicios de la lección.
+- [ ] El estudiante puede finalizar la lección después de completar sus ejercicios.
+- [ ] El sistema muestra un resultado al finalizar la lección.
+
+**Prioridad:** MVP
