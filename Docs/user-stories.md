@@ -246,3 +246,20 @@
 - [ ] El estudiante puede consultar información relacionada con su progreso y áreas de mejora.
 
 **Prioridad:** Futura
+
+# HU-16 - Gestión del perfil
+
+**Como** estudiante
+**Quiero** consultar y modificar la información básica de mi perfil y configuración de aprendizaje
+**Para** mantener actualizados mis datos y preferencias dentro de LinguaFlow.
+
+### Criterios de aceptación
+
+- [ ] El estudiante puede consultar la información básica registrada en su perfil.
+- [ ] El estudiante puede modificar la información permitida de su perfil.
+- [ ] El estudiante puede consultar su idioma y nivel de aprendizaje configurados.
+- [ ] El estudiante puede modificar su configuración de aprendizaje cuando corresponda.
+- [ ] El sistema valida los datos modificados antes de guardarlos.
+- [ ] El sistema confirma al estudiante cuando los cambios se guardan correctamente.
+
+**Prioridad:** MVP
