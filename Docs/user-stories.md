@@ -94,3 +94,19 @@
 - [ ] La retroalimentación se adapta al idioma y nivel seleccionado por el estudiante.
 
 **Prioridad:** MVP
+
+## HU-07 - Guardar resultados de la lección
+
+**Como** estudiante
+**Quiero** que el sistema guarde un resultado detallado al finalizar una lección
+**Para** consultar mi desempeño específico y conocer mi evolución a lo largo del tiempo.
+
+### Criterios de aceptación
+
+- [ ] Al finalizar la lección, el sistema calcula y muestra un resumen que incluye el puntaje total, la cantidad de ejercicios correctos e incorrectos y el tiempo empleado.
+- [ ] El sistema guarda el detalle de cada ejercicio realizado, incluyendo la respuesta del estudiante, la respuesta correcta y si la respuesta fue correcta o incorrecta.
+- [ ] El resultado queda asociado al estudiante, la lección, el idioma y el nivel correspondiente.
+- [ ] El estudiante puede consultar el resultado detallado de una lección que haya completado.
+- [ ] El sistema registra la fecha en que se completó la lección.
+
+**Prioridad:** MVP
