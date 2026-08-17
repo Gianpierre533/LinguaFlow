@@ -110,3 +110,20 @@
 - [ ] El sistema registra la fecha en que se completó la lección.
 
 **Prioridad:** MVP
+
+## HU-08 - Consultar progreso
+
+**Como** estudiante
+**Quiero** consultar mi progreso de aprendizaje.
+**Para** conocer mi evolución y saber en qué aspectos del idioma necesito mejorar.
+
+### Criterios de aceptación
+
+- [ ] El estudiante puede acceder a su sección de progreso desde su perfil.
+- [ ] El sistema muestra un resumen de las lecciones realizadas y sus resultados.
+- [ ] El sistema muestra la evolución del puntaje del estudiante a lo largo del tiempo.
+- [ ] El estudiante puede identificar los ejercicios o áreas en las que presenta mayores dificultades.
+- [ ] El sistema muestra el idioma y nivel en el que el estudiante está realizando sus prácticas.
+- [ ] La información mostrada corresponde únicamente al progreso del estudiante autenticado.
+
+**Prioridad:**MVP
