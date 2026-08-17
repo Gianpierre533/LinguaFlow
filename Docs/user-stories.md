@@ -229,3 +229,20 @@
 - [ ] El sistema registra el resultado de la actividad para considerar el progreso del estudiante.
 
 **Prioridad:** Futura
+
+# HU-15 - Personalización del aprendizaje
+
+**Como** estudiante
+**Quiero** que el sistema adapte las prácticas a mi rendimiento, errores y progreso
+**Para** recibir una experiencia de aprendizaje personalizada.
+
+### Criterios de aceptación
+
+- [ ] El sistema analiza los resultados obtenidos por el estudiante en sus actividades y lecciones.
+- [ ] El sistema identifica errores o habilidades que requieren mayor práctica.
+- [ ] El sistema puede modificar la dificultad de las actividades según el rendimiento del estudiante.
+- [ ] La IA utiliza el historial de aprendizaje del estudiante para generar prácticas personalizadas.
+- [ ] Las actividades recomendadas pueden cambiar conforme el estudiante mejora.
+- [ ] El estudiante puede consultar información relacionada con su progreso y áreas de mejora.
+
+**Prioridad:** Futura
