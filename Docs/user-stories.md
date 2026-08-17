@@ -161,3 +161,20 @@
 - [ ] El estudiante puede finalizar la sesión de práctica por voz.
 
 **Prioridad:** Posterior al MVP
+
+# HU-11 - Evaluación de pronunciación
+
+**Como** estudiante
+**Quiero** recibir una evaluación de mi pronunciación
+**Para** identificar mis errores y mejorar mi expresión oral.
+
+### Criterios de aceptación
+
+- [ ] El estudiante puede iniciar una actividad de evaluación de pronunciación.
+- [ ] El sistema presenta una palabra o frase que el estudiante debe pronunciar.
+- [ ] El sistema registra la pronunciación realizada mediante el micrófono.
+- [ ] El sistema analiza la pronunciación del estudiante.
+- [ ] El sistema muestra una valoración o resultado de la pronunciación.
+- [ ] El sistema proporciona retroalimentación sobre los aspectos que el estudiante puede mejorar.
+
+**Prioridad:** Posterior al MVP
