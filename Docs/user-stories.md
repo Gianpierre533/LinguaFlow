@@ -195,3 +195,20 @@
 - [ ] El sistema informa al estudiante si ocurre un error durante el proceso de autenticación.
 
 **Prioridad:** Posterior al MVP
+
+# HU-13 - Recomendación de contenido
+
+**Como** estudiante
+**Quiero** recibir recomendaciones de contenido adecuadas a mi nivel y necesidades
+**Para** continuar mejorando mis habilidades en el idioma.
+
+### Criterios de aceptación
+
+- [ ] El sistema identifica el idioma y nivel actual del estudiante.
+- [ ] El sistema considera el rendimiento y progreso registrado del estudiante.
+- [ ] La IA genera recomendaciones relacionadas con las necesidades de aprendizaje del estudiante.
+- [ ] El sistema presenta las recomendaciones de manera organizada.
+- [ ] El estudiante puede consultar el contenido recomendado.
+- [ ] Las recomendaciones pueden variar conforme evoluciona el rendimiento del estudiante.
+
+**Prioridad:** Futura
