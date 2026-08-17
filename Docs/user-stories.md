@@ -127,3 +127,18 @@
 - [ ] La información mostrada corresponde únicamente al progreso del estudiante autenticado.
 
 **Prioridad:**MVP
+
+## HU-09 - Conversación con IA
+
+**Como** estudiante
+**Quiero** mantener una conversación escrita con un tutor de IA adaptado a mi idioma y nivel.
+**Para** practicar la comprensión y producción escrita de manera personalizada.
+
+### Criterios de aceptación
+
+- [ ] El estudiante puede iniciar una conversación con el tutor de IA.
+- [ ] El sistema utiliza el idioma y nivel de aprendizaje configurados por el estudiante.
+- [ ] El estudiante puede enviar mensajes escritos al tutor de IA.
+- [ ] El tutor de IA responde de acuerdo con el contexto de la conversación y el nivel del estudiante.
+- [ ] El tutor puede señalar errores relevantes y proporcionar una corrección o explicación cuando corresponda.
+- [ ] El estudiante puede finalizar la conversación cuando lo desee.
