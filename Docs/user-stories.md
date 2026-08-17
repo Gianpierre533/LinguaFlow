@@ -142,3 +142,22 @@
 - [ ] El tutor de IA responde de acuerdo con el contexto de la conversación y el nivel del estudiante.
 - [ ] El tutor puede señalar errores relevantes y proporcionar una corrección o explicación cuando corresponda.
 - [ ] El estudiante puede finalizar la conversación cuando lo desee.
+
+**Prioridad:**MVP
+
+# HU-10 - Práctica por voz
+
+**Como** estudiante
+**Quiero** conversar mediante voz con el tutor de IA
+**Para** practicar mi expresión oral en el idioma que estoy aprendiendo.
+
+### Criterios de aceptación
+
+- [ ] El estudiante puede iniciar una sesión de práctica por voz.
+- [ ] El sistema solicita y utiliza el acceso al micrófono del dispositivo.
+- [ ] El estudiante puede realizar intervenciones mediante voz.
+- [ ] El sistema convierte la intervención del estudiante en información procesable por la IA.
+- [ ] El tutor de IA responde teniendo en cuenta el idioma y nivel del estudiante.
+- [ ] El estudiante puede finalizar la sesión de práctica por voz.
+
+**Prioridad:** Posterior al MVP
