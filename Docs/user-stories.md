@@ -178,3 +178,20 @@
 - [ ] El sistema proporciona retroalimentación sobre los aspectos que el estudiante puede mejorar.
 
 **Prioridad:** Posterior al MVP
+
+# HU-12 - Registro con Google
+
+**Como** estudiante
+**Quiero** registrarme e iniciar sesión utilizando mi cuenta de Google
+**Para** acceder a LinguaFlow de una manera rápida y sencilla.
+
+### Criterios de aceptación
+
+- [ ] El sistema muestra una opción para registrarse con una cuenta de Google.
+- [ ] El estudiante puede seleccionar su cuenta de Google para registrarse.
+- [ ] El sistema crea una cuenta de LinguaFlow asociada a la cuenta de Google cuando el estudiante se registra por primera vez.
+- [ ] El estudiante puede iniciar sesión utilizando su cuenta de Google.
+- [ ] El sistema identifica al estudiante y carga su información y progreso asociado.
+- [ ] El sistema informa al estudiante si ocurre un error durante el proceso de autenticación.
+
+**Prioridad:** Posterior al MVP
