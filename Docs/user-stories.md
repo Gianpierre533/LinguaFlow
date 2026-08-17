@@ -212,3 +212,20 @@
 - [ ] Las recomendaciones pueden variar conforme evoluciona el rendimiento del estudiante.
 
 **Prioridad:** Futura
+
+# HU-14 - Actividades y juegos interactivos
+
+**Como** estudiante
+**Quiero** practicar mediante actividades y juegos interactivos
+**Para** reforzar mis conocimientos de una manera dinámica y entretenida.
+
+### Criterios de aceptación
+
+- [ ] El estudiante puede seleccionar una actividad o juego disponible.
+- [ ] El sistema adapta la dificultad de las actividades al nivel del estudiante.
+- [ ] El estudiante puede interactuar con las actividades propuestas.
+- [ ] El sistema valida las respuestas proporcionadas por el estudiante.
+- [ ] El sistema muestra el resultado obtenido al finalizar la actividad.
+- [ ] El sistema registra el resultado de la actividad para considerar el progreso del estudiante.
+
+**Prioridad:** Futura
