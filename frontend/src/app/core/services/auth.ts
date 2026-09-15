@@ -9,7 +9,12 @@ export interface RegisterData {
   password_confirmation: string;
 }
 
-export interface RegisterResponse {
+export interface LoginData {
+  email: string;
+  password: string;
+}
+
+export interface AuthResponse {
   message: string;
   user: {
     id: number;
@@ -27,9 +32,16 @@ export class AuthService {
 
   constructor(private readonly http: HttpClient) {}
 
-  register(data: RegisterData): Observable<RegisterResponse> {
-    return this.http.post<RegisterResponse>(
+  register(data: RegisterData): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(
       `${this.apiUrl}/register`,
+      data
+    );
+  }
+
+  login(data: LoginData): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(
+      `${this.apiUrl}/login`,
       data
     );
   }
