@@ -1,5 +1,25 @@
-<section class="register-container">
-  <h1>Crear cuenta</h1>
+<main class="auth-page">
+  <section class="auth-visual">
+    <img class="auth-logo" src="/assets/linguaflow-logo-dark.png" alt="Logo de LinguaFlow">
+    <span class="auth-kicker">APRENDE · PRACTICA · AVANZA</span>
+    <h2>Tu próximo idioma empieza aquí.</h2>
+    <p>Practica, descubre tus avances y construye una rutina que se adapte a ti.</p>
+    <span class="auth-orbit auth-orbit-one"></span>
+    <span class="auth-orbit auth-orbit-two"></span>
+  </section>
+
+  <section class="auth-card">
+    <div class="register-container">
+      <nav class="auth-tabs" aria-label="Navegación de autenticación">
+        <a routerLink="/login" routerLinkActive="is-active">
+          Iniciar sesión
+        </a>
+        <a routerLink="/register" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+          Crear cuenta
+        </a>
+      </nav>
+
+      <h1>Crear cuenta</h1>
 
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <label for="name">Nombre</label>
@@ -37,10 +57,10 @@
 
     <button type="submit">Registrarme</button>
   </form>
-  <p>
-  ¿Ya tienes una cuenta?
-  <a routerLink="/login">Iniciar sesión</a>
-</p>
+      <p class="auth-switch">
+        ¿Ya tienes una cuenta?
+        <a routerLink="/login">Inicia sesión</a>
+      </p>
 
   @if (message()) {
     <p class="success">{{ message() }}</p>
@@ -49,4 +69,6 @@
   @if (error()) {
     <p class="error">{{ error() }}</p>
   }
-</section>
+    </div>
+  </section>
+</main>

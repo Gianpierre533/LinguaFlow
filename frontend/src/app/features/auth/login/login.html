@@ -1,5 +1,25 @@
-<section class="login-container">
-  <h1>Iniciar sesión</h1>
+<main class="auth-page">
+  <section class="auth-visual">
+    <img class="auth-logo" src="/assets/linguaflow-logo-dark.png" alt="Logo de LinguaFlow">
+    <span class="auth-kicker">APRENDE · PRACTICA · AVANZA</span>
+    <h2>Aprende idiomas a tu ritmo.</h2>
+    <p>Convierte unos minutos al día en progreso que puedas sentir.</p>
+    <span class="auth-orbit auth-orbit-one"></span>
+    <span class="auth-orbit auth-orbit-two"></span>
+  </section>
+
+  <section class="auth-card">
+    <div class="login-container">
+      <nav class="auth-tabs" aria-label="Navegación de autenticación">
+        <a routerLink="/login" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+          Iniciar sesión
+        </a>
+        <a routerLink="/register" routerLinkActive="is-active">
+          Crear cuenta
+        </a>
+      </nav>
+
+      <h1>Iniciar sesión</h1>
 
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <label for="email">Correo electrónico</label>
@@ -18,10 +38,10 @@
 
     <button type="submit">Iniciar sesión</button>
   </form>
-  <p>
-  ¿Aún no tienes una cuenta?
-  <a routerLink="/register">Crear cuenta</a>
-</p>
+      <p class="auth-switch">
+        ¿Aún no tienes una cuenta?
+        <a routerLink="/register">Regístrate gratis</a>
+      </p>
 
   @if (message()) {
     <p class="success">{{ message() }}</p>
@@ -30,5 +50,6 @@
   @if (error()) {
     <p class="error">{{ error() }}</p>
   }
-  
-</section>
+    </div>
+  </section>
+</main>
