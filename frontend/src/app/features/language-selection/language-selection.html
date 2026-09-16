@@ -1,0 +1,42 @@
+<section class="selection-container">
+  <h1>Configura tu práctica</h1>
+  <p>Selecciona el idioma y el nivel con el que deseas comenzar.</p>
+
+  <form [formGroup]="languageForm" (ngSubmit)="saveSelection()">
+    <label for="language">Idioma</label>
+    <select id="language" formControlName="language">
+      <option value="">Selecciona un idioma</option>
+      <option value="ingles">Inglés</option>
+      <option value="italiano">Italiano</option>
+      <option value="portugues">Portugués</option>
+      <option value="polaco">Polaco</option>
+    </select>
+
+    @if (languageForm.controls.language.touched &&
+         languageForm.controls.language.invalid) {
+      <small>Selecciona un idioma.</small>
+    }
+
+    <label for="level">Nivel</label>
+    <select id="level" formControlName="level">
+      <option value="">Selecciona un nivel</option>
+      <option value="A1">A1 - Inicial</option>
+      <option value="A2">A2 - Básico</option>
+      <option value="B1">B1 - Intermedio</option>
+      <option value="B2">B2 - Intermedio alto</option>
+      <option value="C1">C1 - Avanzado</option>
+      <option value="C2">C2 - Maestría</option>
+    </select>
+
+    @if (languageForm.controls.level.touched &&
+         languageForm.controls.level.invalid) {
+      <small>Selecciona un nivel.</small>
+    }
+
+    <button type="submit">Guardar selección</button>
+  </form>
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+</section>

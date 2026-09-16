@@ -36,7 +36,7 @@ export class Login {
         this.message.set(response.message);
         this.error.set('');
         this.loginForm.reset();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/language-selection']);
       },
       error: (error: HttpErrorResponse) => {
         this.error.set(

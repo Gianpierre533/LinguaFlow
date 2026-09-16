@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
 export interface RegisterData {
@@ -14,6 +14,11 @@ export interface LoginData {
   password: string;
 }
 
+export interface LanguageData {
+  language: string;
+  level: string;
+}
+
 export interface AuthResponse {
   message: string;
   user: {
@@ -22,6 +27,16 @@ export interface AuthResponse {
     email: string;
   };
   token: string;
+}
+
+export interface LanguageResponse {
+  message: string;
+  user_language: {
+    id: number;
+    user_id: number;
+    language: string;
+    level: string;
+  };
 }
 
 @Injectable({
@@ -43,6 +58,18 @@ export class AuthService {
     return this.http
       .post<AuthResponse>(`${this.apiUrl}/login`, data)
       .pipe(tap((response) => this.saveToken(response.token)));
+  }
+
+  saveLanguage(data: LanguageData): Observable<LanguageResponse> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    return this.http.post<LanguageResponse>(
+      `${this.apiUrl}/user-languages`,
+      data,
+      { headers }
+    );
   }
 
   getToken(): string | null {
