@@ -37,6 +37,10 @@
 
     <button type="submit">Registrarme</button>
   </form>
+  <p>
+  ¿Ya tienes una cuenta?
+  <a routerLink="/login">Iniciar sesión</a>
+</p>
 
   @if (message()) {
     <p class="success">{{ message() }}</p>

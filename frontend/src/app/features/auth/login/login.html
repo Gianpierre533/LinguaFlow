@@ -18,6 +18,10 @@
 
     <button type="submit">Iniciar sesión</button>
   </form>
+  <p>
+  ¿Aún no tienes una cuenta?
+  <a routerLink="/register">Crear cuenta</a>
+</p>
 
   @if (message()) {
     <p class="success">{{ message() }}</p>
@@ -26,4 +30,5 @@
   @if (error()) {
     <p class="error">{{ error() }}</p>
   }
+  
 </section>
