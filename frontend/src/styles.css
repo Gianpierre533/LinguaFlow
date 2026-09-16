@@ -28,7 +28,7 @@ body {
 .auth-page {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
+  grid-template-columns: minmax(420px, 1fr) minmax(360px, 520px);
   align-items: stretch;
   background: var(--color-background);
   overflow: hidden;
@@ -39,7 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 4rem clamp(2rem, 8vw, 8rem);
+  padding: 3.5rem clamp(2rem, 6vw, 6rem);
   overflow: hidden;
   background: var(--color-deep-green);
   color: white;
@@ -145,14 +145,15 @@ body {
 .auth-card {
   display: flex;
   align-items: center;
-  padding: 2rem clamp(1.5rem, 5vw, 4rem);
+  padding: 2rem clamp(1.25rem, 4vw, 3.5rem);
   background: white;
   box-shadow: var(--shadow-soft);
 }
 
 .register-container,
 .login-container {
-  width: 100%;
+  width: min(100%, 430px);
+  margin: 0 auto;
   animation: form-enter 600ms 120ms cubic-bezier(.2,.8,.2,1) both;
 }
 
@@ -160,7 +161,7 @@ body {
 .login-container h1 {
   margin: 0 0 2rem;
   color: var(--color-deep-green);
-  font-size: 2.25rem;
+  font-size: clamp(1.9rem, 3vw, 2.25rem);
   letter-spacing: -0.04em;
 }
 
@@ -168,15 +169,16 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.25rem;
-  margin-bottom: 2.25rem;
-  padding: 0.25rem;
-  border-radius: 10px;
-  background: #edf4f0;
+  margin-bottom: 2.5rem;
+  padding: 0.3rem;
+  border: 1px solid #dce8e1;
+  border-radius: 12px;
+  background: #f4f8f5;
 }
 
 .auth-tabs a {
   position: relative;
-  padding: 0.7rem 0.5rem;
+  padding: 0.8rem 0.5rem;
   border-radius: 8px;
   color: #66736d;
   font-size: 0.9rem;
@@ -194,19 +196,31 @@ body {
 .auth-tabs a.is-active {
   background: white;
   color: var(--color-deep-green);
-  box-shadow: 0 3px 10px rgb(11 59 46 / 10%);
+  box-shadow: 0 4px 14px rgb(11 59 46 / 12%);
+}
+
+.auth-tabs a.is-active::after {
+  content: '';
+  position: absolute;
+  right: 22%;
+  bottom: 0.25rem;
+  left: 22%;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  animation: tab-line 220ms ease-out both;
 }
 
 .register-container form,
 .login-container form {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .register-container label,
 .login-container label {
-  margin-top: 0.75rem;
+  margin-top: 0.65rem;
   font-weight: 600;
   color: var(--color-label);
 }
@@ -214,11 +228,26 @@ body {
 .register-container input,
 .login-container input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.68rem 0.75rem;
   border: 1px solid var(--color-border);
   border-radius: 6px;
   font-size: 1rem;
   background: #fbfdfc;
+  animation: field-enter 450ms ease-out both;
+}
+
+.register-container input:nth-of-type(2),
+.login-container input:nth-of-type(2) {
+  animation-delay: 70ms;
+}
+
+.register-container input:nth-of-type(3),
+.login-container input:nth-of-type(3) {
+  animation-delay: 140ms;
+}
+
+.register-container input:nth-of-type(4) {
+  animation-delay: 210ms;
 }
 
 .register-container input:focus,
@@ -230,13 +259,14 @@ body {
 .register-container button,
 .login-container button {
   margin-top: 1.25rem;
-  padding: 0.75rem;
+  padding: 0.7rem 0.75rem;
   border: none;
   border-radius: 6px;
   background-color: var(--color-primary);
   color: white;
   font-size: 1rem;
   cursor: pointer;
+  animation: field-enter 450ms 230ms ease-out both;
 }
 
 .register-container button:hover,
@@ -322,6 +352,17 @@ body {
   }
 }
 
+@keyframes field-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes float {
   0%, 100% {
     transform: translate3d(0, 0, 0);
@@ -340,6 +381,17 @@ body {
   }
 }
 
+@keyframes tab-line {
+  from {
+    opacity: 0;
+    transform: scaleX(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -350,21 +402,21 @@ body {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1100px) {
   .auth-page {
     display: block;
   }
 
   .auth-visual {
-    min-height: 315px;
-    padding: 2.5rem 1.5rem;
+    min-height: 255px;
+    padding: 2rem 1.5rem;
     text-align: center;
     align-items: center;
   }
 
   .auth-logo {
-    width: 185px;
-    margin-bottom: 1.25rem;
+    width: 165px;
+    margin-bottom: 1rem;
   }
 
   .auth-kicker {
@@ -373,7 +425,7 @@ body {
 
   .auth-visual h2 {
     max-width: 360px;
-    font-size: 2.35rem;
+    font-size: 2rem;
   }
 
   .auth-visual p {
@@ -383,8 +435,8 @@ body {
   }
 
   .auth-card {
-    min-height: calc(100vh - 280px);
-    padding: 2rem 1.5rem;
+    min-height: calc(100vh - 255px);
+    padding: 1.75rem 1.25rem 2.5rem;
   }
 
   .auth-tabs {
@@ -393,5 +445,109 @@ body {
 
   .auth-tabs a {
     font-size: 0.82rem;
+  }
+}
+/* Animaciones adicionales de autenticación */
+
+.auth-visual {
+  animation: visual-enter 850ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.auth-card {
+  animation: card-enter 750ms 120ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.register-container label,
+.login-container label {
+  animation: label-enter 450ms ease-out both;
+}
+
+.register-container label:nth-of-type(2),
+.login-container label:nth-of-type(2) {
+  animation-delay: 80ms;
+}
+
+.register-container label:nth-of-type(3),
+.login-container label:nth-of-type(3) {
+  animation-delay: 160ms;
+}
+
+.register-container label:nth-of-type(4) {
+  animation-delay: 240ms;
+}
+
+.register-container button,
+.login-container button {
+  position: relative;
+  overflow: hidden;
+}
+
+.register-container button::before,
+.login-container button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgb(255 255 255 / 25%) 50%,
+    transparent 75%
+  );
+  transform: translateX(-120%);
+  transition: transform 600ms ease;
+}
+
+.register-container button:hover::before,
+.login-container button:hover::before {
+  transform: translateX(120%);
+}
+
+.auth-tabs a.is-active {
+  animation: active-tab 300ms ease-out both;
+}
+
+@keyframes visual-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes label-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes active-tab {
+  from {
+    transform: scale(0.98);
+  }
+
+  to {
+    transform: scale(1);
   }
 }

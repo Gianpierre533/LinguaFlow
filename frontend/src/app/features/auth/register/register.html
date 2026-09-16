@@ -11,11 +11,11 @@
   <section class="auth-card">
     <div class="register-container">
       <nav class="auth-tabs" aria-label="Navegación de autenticación">
-        <a routerLink="/login" routerLinkActive="is-active">
-          Iniciar sesión
-        </a>
         <a routerLink="/register" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
           Crear cuenta
+        </a>
+        <a routerLink="/login" routerLinkActive="is-active">
+          Iniciar sesión
         </a>
       </nav>
 
