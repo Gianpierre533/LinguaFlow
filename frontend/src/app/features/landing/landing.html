@@ -1,0 +1,188 @@
+@if (showIntro()) {
+ <section
+  class="intro-screen"
+  [class.intro-screen-closing]="isIntroClosing()"
+>
+    <img
+      class="intro-logo"
+      src="/assets/linguaflow-logo-dark.png"
+      alt="LinguaFlow"
+    >
+
+    <div class="intro-words">
+      <span>Aprende.</span>
+      <span>Practica.</span>
+      <span>Avanza.</span>
+    </div>
+
+    <p>Tu camino para aprender idiomas empieza aquí.</p>
+
+    <button type="button" class="skip-intro" (click)="skipIntro()">
+      Saltar intro
+    </button>
+  </section>
+}
+<main class="landing-page">
+  <header class="landing-header">
+    <a class="landing-logo" routerLink="/">
+      <img
+        src="/assets/linguaflow-logo-light.png"
+        alt="LinguaFlow"
+      >
+    </a>
+
+    <nav class="landing-nav" aria-label="Navegación principal">
+      <a routerLink="/login">Iniciar sesión</a>
+      <a class="nav-button" routerLink="/register">Empezar ahora</a>
+    </nav>
+  </header>
+
+  <section class="landing-hero">
+    <div class="hero-content">
+      <span class="hero-kicker">APRENDE · PRACTICA · AVANZA</span>
+
+      <h1>
+        Aprende un idioma.
+        <span>Construye tu confianza.</span>
+      </h1>
+
+      <p>
+        LinguaFlow te ayuda a practicar idiomas con lecciones interactivas,
+        correcciones claras y un progreso que puedes ver.
+      </p>
+
+      <div class="hero-actions">
+        <a class="primary-button" routerLink="/register">
+          Empezar ahora
+        </a>
+
+        <a class="secondary-button" href="#como-funciona">
+          Ver cómo funciona
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-preview" aria-label="Vista previa de una lección">
+      <div class="preview-header">
+        <span>Lección de inglés</span>
+        <span class="preview-level">A1</span>
+      </div>
+
+      <div class="preview-progress">
+        <span></span>
+      </div>
+
+      <p class="preview-label">Ejercicio 2 de 5</p>
+
+      <h2>Choose the correct answer</h2>
+
+      <div class="preview-options">
+        <div class="preview-option selected">Good morning</div>
+        <div class="preview-option">Good night</div>
+        <div class="preview-option">Good afternoon</div>
+      </div>
+
+      <div class="preview-feedback">
+        <span>✓</span>
+        ¡Muy bien! Continúa así.
+      </div>
+    </div>
+  </section>
+  <section class="lesson-demo-section">
+  <div class="lesson-demo-copy">
+    <span class="hero-kicker">MIRA CÓMO FUNCIONA</span>
+
+    <h2>
+      Aprende practicando,
+      <span>no memorizando.</span>
+    </h2>
+
+    <p>
+      Cada lección combina ejercicios breves, respuestas claras y
+      retroalimentación para que sepas exactamente cómo mejorar.
+    </p>
+
+    <a class="primary-button" routerLink="/register">
+      Probar LinguaFlow
+    </a>
+  </div>
+
+  <div class="lesson-demo-card">
+    <div class="lesson-demo-topbar">
+      <span>Lección diaria</span>
+      <span class="demo-status">En progreso</span>
+    </div>
+
+    <div class="lesson-demo-progress">
+      <span></span>
+    </div>
+
+    <span class="demo-step">Ejercicio 3 de 5</span>
+
+    <h3>How do you say “Buenos días”?</h3>
+
+    <div class="demo-answer demo-answer-correct">
+      <span class="answer-icon">✓</span>
+      Good morning
+    </div>
+
+    <div class="demo-answer">
+      <span class="answer-icon">○</span>
+      Good evening
+    </div>
+
+    <div class="demo-answer">
+      <span class="answer-icon">○</span>
+      Good night
+    </div>
+
+    <div class="demo-feedback">
+      <strong>¡Respuesta correcta!</strong>
+      <span>Usamos “Good morning” para saludar durante la mañana.</span>
+    </div>
+  </div>
+</section>
+
+  <section id="como-funciona" class="features-section">
+    <div class="section-heading">
+      <span class="hero-kicker">ASÍ FUNCIONA</span>
+      <h2>Una forma más clara de aprender.</h2>
+      <p>
+        Practica a tu ritmo y convierte cada sesión en un pequeño avance.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <article class="feature-card">
+        <span class="feature-number">01</span>
+        <h3>Elige tu camino</h3>
+        <p>
+          Selecciona el idioma y el nivel que mejor se adapten a ti.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span class="feature-number">02</span>
+        <h3>Practica con ejercicios</h3>
+        <p>
+          Aprende mediante actividades breves, claras e interactivas.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span class="feature-number">03</span>
+        <h3>Observa tu progreso</h3>
+        <p>
+          Revisa tus resultados y descubre cómo vas mejorando.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="landing-cta">
+    <h2>Tu próximo avance empieza hoy.</h2>
+    <a class="primary-button" routerLink="/register">
+      Crear mi cuenta
+    </a>
+  </section>
+</main>
