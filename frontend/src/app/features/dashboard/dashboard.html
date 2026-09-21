@@ -1,10 +1,167 @@
-<section class="dashboard-container">
-  <h1>Bienvenido a LinguaFlow</h1>
+<section class="dashboard-page">
+  <header class="dashboard-header">
+    <div class="brand">
+      <img
+        src="/assets/linguaflow-symbol.png"
+        alt="LinguaFlow"
+        class="brand-symbol"
+      />
 
-  <p>Esta es tu pantalla principal.</p>
-  <p>Más adelante aquí mostraremos tu progreso, lecciones y actividades.</p>
+      <div>
+        <span class="eyebrow">Tu espacio de aprendizaje</span>
+        <h1>Hola, estudiante 👋</h1>
+      </div>
+    </div>
 
-  <button type="button" (click)="logout()">
-    Cerrar sesión
-  </button>
+    <button type="button" class="logout-button" (click)="logout()">
+      Cerrar sesión
+    </button>
+  </header>
+
+  <main class="dashboard-content">
+    <section class="welcome-card">
+      <div>
+        <span class="eyebrow">Resumen de hoy</span>
+        <h2>Continúa avanzando en tu aprendizaje</h2>
+        <p>
+          Practica un poco cada día y mantén constante tu progreso.
+        </p>
+
+        <button type="button" class="primary-button">
+          Continuar lección
+        </button>
+      </div>
+
+      <div class="progress-ring">
+        <strong>68%</strong>
+        <span>progreso</span>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="Estadísticas de aprendizaje">
+      <article class="stat-card">
+        <span class="stat-icon">🔥</span>
+        <div>
+          <strong>7 días</strong>
+          <span>Racha actual</span>
+        </div>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon">📚</span>
+        <div>
+          <strong>24</strong>
+          <span>Lecciones completadas</span>
+        </div>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon">⭐</span>
+        <div>
+          <strong>1,280</strong>
+          <span>Puntos obtenidos</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel lessons-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">Tu camino</span>
+            <h2>Lecciones recientes</h2>
+          </div>
+
+          <button type="button" class="text-button">
+            Ver todas
+          </button>
+        </div>
+
+        <div class="lesson-list">
+          <div class="lesson-item">
+            <span class="lesson-number">01</span>
+
+            <div class="lesson-info">
+              <strong>Saludos y presentaciones</strong>
+              <span>Principiante · 12 minutos</span>
+            </div>
+
+            <span class="lesson-status completed">Completada</span>
+          </div>
+
+          <div class="lesson-item">
+            <span class="lesson-number">02</span>
+
+            <div class="lesson-info">
+              <strong>Conversaciones cotidianas</strong>
+              <span>Principiante · 15 minutos</span>
+            </div>
+
+            <span class="lesson-status current">En progreso</span>
+          </div>
+
+          <div class="lesson-item">
+            <span class="lesson-number">03</span>
+
+            <div class="lesson-info">
+              <strong>Vocabulario esencial</strong>
+              <span>Principiante · 10 minutos</span>
+            </div>
+
+            <span class="lesson-status locked">Pendiente</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel activity-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">Constancia</span>
+            <h2>Actividad semanal</h2>
+          </div>
+        </div>
+
+        <div class="week-chart">
+          <div class="chart-column">
+            <span class="chart-bar bar-medium"></span>
+            <small>Lun</small>
+          </div>
+
+          <div class="chart-column">
+            <span class="chart-bar bar-high"></span>
+            <small>Mar</small>
+          </div>
+
+          <div class="chart-column">
+            <span class="chart-bar bar-low"></span>
+            <small>Mié</small>
+          </div>
+
+          <div class="chart-column">
+            <span class="chart-bar bar-high"></span>
+            <small>Jue</small>
+          </div>
+
+          <div class="chart-column">
+            <span class="chart-bar bar-medium"></span>
+            <small>Vie</small>
+          </div>
+
+          <div class="chart-column">
+            <span class="chart-bar bar-low"></span>
+            <small>Sáb</small>
+          </div>
+
+          <div class="chart-column">
+            <span class="chart-bar bar-current"></span>
+            <small>Dom</small>
+          </div>
+        </div>
+
+        <p class="activity-summary">
+          Has practicado <strong>4 de 7 días</strong> esta semana.
+        </p>
+      </article>
+    </section>
+  </main>
 </section>
