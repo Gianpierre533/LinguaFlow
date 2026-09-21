@@ -1,42 +1,164 @@
-<section class="selection-container">
-  <h1>Configura tu práctica</h1>
-  <p>Selecciona el idioma y el nivel con el que deseas comenzar.</p>
+<section class="selection-page">
+  <div class="selection-decoration decoration-one"></div>
+  <div class="selection-decoration decoration-two"></div>
 
-  <form [formGroup]="languageForm" (ngSubmit)="saveSelection()">
-    <label for="language">Idioma</label>
-    <select id="language" formControlName="language">
-      <option value="">Selecciona un idioma</option>
-      <option value="ingles">Inglés</option>
-      <option value="italiano">Italiano</option>
-      <option value="portugues">Portugués</option>
-      <option value="polaco">Polaco</option>
-    </select>
+  <main class="selection-card">
+    <div class="selection-brand">
+      <img
+        src="/assets/linguaflow-symbol.png"
+        alt="LinguaFlow"
+      />
+      <span>LinguaFlow</span>
+    </div>
 
-    @if (languageForm.controls.language.touched &&
-         languageForm.controls.language.invalid) {
-      <small>Selecciona un idioma.</small>
-    }
+    <div class="selection-heading">
+      <span class="eyebrow">Personaliza tu experiencia</span>
+      <h1>¿Qué quieres aprender?</h1>
+      <p>
+        Elige un idioma y tu nivel actual. Así podremos preparar una ruta
+        adaptada para ti.
+      </p>
+    </div>
 
-    <label for="level">Nivel</label>
-    <select id="level" formControlName="level">
-      <option value="">Selecciona un nivel</option>
-      <option value="A1">A1 - Inicial</option>
-      <option value="A2">A2 - Básico</option>
-      <option value="B1">B1 - Intermedio</option>
-      <option value="B2">B2 - Intermedio alto</option>
-      <option value="C1">C1 - Avanzado</option>
-      <option value="C2">C2 - Maestría</option>
-    </select>
+    <form [formGroup]="languageForm" (ngSubmit)="saveSelection()">
+      <div class="form-field">
+  <label>Idioma que quieres aprender</label>
 
-    @if (languageForm.controls.level.touched &&
-         languageForm.controls.level.invalid) {
-      <small>Selecciona un nivel.</small>
-    }
+  <div class="option-grid language-grid">
+    <label class="option-card">
+      <input type="radio" value="ingles" formControlName="language" />
+      <span class="option-icon">🇬🇧</span>
+      <span class="option-content">
+        <strong>Inglés</strong>
+        <small>English</small>
+      </span>
+      <span class="checkmark">✓</span>
+    </label>
 
-    <button type="submit">Guardar selección</button>
-  </form>
+    <label class="option-card">
+      <input type="radio" value="italiano" formControlName="language" />
+      <span class="option-icon">🇮🇹</span>
+      <span class="option-content">
+        <strong>Italiano</strong>
+        <small>Italiano</small>
+      </span>
+      <span class="checkmark">✓</span>
+    </label>
 
-  @if (error()) {
-    <p class="error">{{ error() }}</p>
+    <label class="option-card">
+      <input type="radio" value="portugues" formControlName="language" />
+      <span class="option-icon">🇵🇹</span>
+      <span class="option-content">
+        <strong>Portugués</strong>
+        <small>Português</small>
+      </span>
+      <span class="checkmark">✓</span>
+    </label>
+
+    <label class="option-card">
+      <input type="radio" value="polaco" formControlName="language" />
+      <span class="option-icon">🇵🇱</span>
+      <span class="option-content">
+        <strong>Polaco</strong>
+        <small>Polski</small>
+      </span>
+      <span class="checkmark">✓</span>
+    </label>
+  </div>
+
+  @if (
+    languageForm.controls.language.touched &&
+    languageForm.controls.language.invalid
+  ) {
+    <small>Selecciona un idioma para continuar.</small>
   }
+</div>
+
+<div class="form-field">
+  <label>¿Cuál es tu nivel?</label>
+
+  <div class="level-list">
+    <label class="level-card">
+      <input type="radio" value="A1" formControlName="level" />
+      <span class="level-badge">A1</span>
+      <span class="option-content">
+        <strong>Estoy comenzando</strong>
+        <small>Aprenderé desde cero</small>
+      </span>
+      <span class="checkmark">✓</span>
+    </label>
+
+    <label class="level-card">
+      <input type="radio" value="A2" formControlName="level" />
+      <span class="level-badge">A2</span>
+      <span class="option-content">
+        <strong>Tengo conocimientos básicos</strong>
+        <small>Conozco algunas palabras y frases</small>
+      </span>
+      <span class="checkmark">✓</span>
+    </label>
+
+    <label class="level-card">
+      <input type="radio" value="B1" formControlName="level" />
+      <span class="level-badge">B1</span>
+      <span class="option-content">
+        <strong>Puedo mantener conversaciones</strong>
+        <small>Entiendo situaciones cotidianas</small>
+      </span>
+      <span class="checkmark">✓</span>
+    </label>
+
+    <label class="level-card">
+      <input type="radio" value="B2" formControlName="level" />
+      <span class="level-badge">B2</span>
+      <span class="option-content">
+        <strong>Me comunico con confianza</strong>
+        <small>Puedo hablar sobre distintos temas</small>
+      </span>
+      <span class="checkmark">✓</span>
+    </label>
+
+    <label class="level-card">
+      <input type="radio" value="C1" formControlName="level" />
+      <span class="level-badge">C1</span>
+      <span class="option-content">
+        <strong>Nivel avanzado</strong>
+        <small>Comprendo textos y conversaciones complejas</small>
+      </span>
+      <span class="checkmark">✓</span>
+    </label>
+
+    <label class="level-card">
+      <input type="radio" value="C2" formControlName="level" />
+      <span class="level-badge">C2</span>
+      <span class="option-content">
+        <strong>Dominio casi completo</strong>
+        <small>Me expreso con naturalidad y precisión</small>
+      </span>
+      <span class="checkmark">✓</span>
+    </label>
+  </div>
+
+  @if (
+    languageForm.controls.level.touched &&
+    languageForm.controls.level.invalid
+  ) {
+    <small>Selecciona tu nivel para continuar.</small>
+  }
+</div>
+
+      <button type="submit">
+        <span>Comenzar mi ruta</span>
+        <span class="button-arrow">→</span>
+      </button>
+    </form>
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    <p class="selection-footer">
+      Podrás cambiar esta configuración más adelante.
+    </p>
+  </main>
 </section>
