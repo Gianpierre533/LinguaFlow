@@ -38,12 +38,15 @@ export interface LanguageResponse {
     level: string;
   };
 }
+export interface PlacementAnswer {
+  question_id: number;
+  selected_answer: number;
+}
+
 export interface PlacementAssessmentData {
   language: string;
   selected_level: string;
-  score: number;
-  total_questions: number;
-  answers: number[];
+  answers: PlacementAnswer[];
 }
 
 export interface PlacementAssessmentResponse {
@@ -55,9 +58,22 @@ export interface PlacementAssessmentResponse {
     estimated_level: string;
     score: number;
     total_questions: number;
-    answers: number[];
+    answers: PlacementAnswer[];
     completed_at: string;
   };
+}
+export interface PlacementQuestion {
+  id: number;
+  language: string;
+  level: string;
+  category: string;
+  question: string;
+  options: string[];
+  explanation: string | null;
+}
+
+export interface PlacementQuestionsResponse {
+  questions: PlacementQuestion[];
 }
 
 @Injectable({
@@ -115,6 +131,25 @@ savePlacementAssessment(
     `${this.apiUrl}/placement-assessments`,
     data,
     { headers }
+  );
+}
+getPlacementQuestions(
+  language: string,
+  level: string
+): Observable<PlacementQuestionsResponse> {
+  const headers = new HttpHeaders({
+    Authorization: `Bearer ${this.getToken()}`
+  });
+
+  return this.http.get<PlacementQuestionsResponse>(
+    `${this.apiUrl}/placement-questions`,
+    {
+      headers,
+      params: {
+        language,
+        level,
+      },
+    }
   );
 }
 

@@ -6,16 +6,22 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserLanguageController;
 use App\Http\Controllers\PlacementAssessmentController;
+use App\Http\Controllers\PlacementQuestionController;
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/user-languages', [
         UserLanguageController::class,
         'store',
     ]);
-
+    
     Route::post('/placement-assessments', [
         PlacementAssessmentController::class,
         'store',
+    ]);
+    
+    Route::get('/placement-questions', [
+        PlacementQuestionController::class,
+        'index',
     ]);
 });
 

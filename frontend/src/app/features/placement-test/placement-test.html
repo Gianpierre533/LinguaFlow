@@ -1,11 +1,39 @@
 <section class="test-page">
   <main class="test-card">
-    @if (!finished()) {
+    @if (loading()) {
+      <section class="status-section">
+        <span class="loading-spinner"></span>
+        <h1>Cargando evaluación...</h1>
+        <p>Estamos preparando preguntas para tu nivel.</p>
+      </section>
+    } @else if (questions().length === 0 && !error()) {
+      <section class="status-section">
+        <span class="result-icon error-icon">!</span>
+
+        <h1>Aún no hay preguntas disponibles</h1>
+
+        <p>
+          Todavía no hemos creado preguntas para
+          <strong>{{ selectedLanguage }}</strong>
+          en el nivel
+          <strong>{{ selectedLevel }}</strong>.
+        </p>
+      </section>
+    } @else if (error() && !finished()) {
+      <section class="status-section">
+        <span class="result-icon error-icon">!</span>
+        <h1>No pudimos cargar la evaluación</h1>
+        <p>{{ error() }}</p>
+      </section>
+    } @else if (!finished()) {
       <header class="test-header">
         <span class="eyebrow">Evaluación inicial</span>
 
         <div class="progress-info">
-          <span>Pregunta {{ currentQuestion() + 1 }} de {{ questions.length }}</span>
+          <span>
+            Pregunta {{ currentQuestion() + 1 }}
+            de {{ questions().length }}
+          </span>
           <span>{{ progress }}%</span>
         </div>
 
@@ -17,28 +45,32 @@
         </div>
 
         <h1>Descubramos tu nivel</h1>
+
         <p>
-  Evaluación de
-  <strong>{{ selectedLanguage }}</strong>
-  · Nivel
-  <strong>{{ selectedLevel }}</strong>
-</p>
+          Evaluación de
+          <strong>{{ selectedLanguage }}</strong>
+          · Nivel
+          <strong>{{ selectedLevel }}</strong>
+        </p>
+
         <p>
-          Responde con tranquilidad. Esta prueba nos ayudará a preparar una
-          experiencia adecuada para ti.
+          Responde con tranquilidad. Analizaremos tus respuestas para
+          recomendarte el nivel más adecuado.
         </p>
       </header>
 
       <section class="question-section">
         <span class="question-number">
-          0{{ currentQuestion() + 1 }}
+          {{ currentQuestion() + 1 }}
         </span>
 
-        <h2>{{ questions[currentQuestion()].question }}</h2>
+        <h2>
+          {{ questions()[currentQuestion()].question }}
+        </h2>
 
         <div class="answers">
           @for (
-            option of questions[currentQuestion()].options;
+            option of questions()[currentQuestion()].options;
             track index;
             let index = $index
           ) {
@@ -72,7 +104,7 @@
               Guardando resultado...
             } @else {
               {{
-                currentQuestion() === questions.length - 1
+                currentQuestion() === questions().length - 1
                   ? 'Ver resultado'
                   : 'Siguiente pregunta'
               }}
@@ -82,8 +114,8 @@
           <span>→</span>
         </button>
 
-        @if (saveError()) {
-          <p class="save-error">{{ saveError() }}</p>
+        @if (error()) {
+          <p class="save-error">{{ error() }}</p>
         }
       </section>
     } @else {
@@ -93,17 +125,50 @@
         <span class="eyebrow">Evaluación completada</span>
 
         <h1>¡Buen trabajo!</h1>
-<p>
-  Has respondido correctamente
-  <strong>{{ score() }} de {{ questions.length }}</strong>
-  preguntas.
-</p>
 
-<div class="result-level">
-  <span>Tu nivel inicial recomendado</span>
-  <strong>{{ getRecommendedLevel() }}</strong>
-</div>
+        <p>
+          Respondiste correctamente
+          <strong>
+            {{ score() }} de {{ questions().length }}
+          </strong>
+          preguntas.
+        </p>
 
+        <div class="result-level">
+          <span>Tu nivel recomendado</span>
+          <strong>{{ estimatedLevel() }}</strong>
+        </div>
+
+        <div class="result-details">
+          <div>
+            <span>Respuestas enviadas</span>
+            <strong>{{ answers().length }}</strong>
+          </div>
+
+          <div>
+            <span>Puntaje obtenido</span>
+            <strong>
+              {{ score() }} / {{ questions().length }}
+            </strong>
+          </div>
+
+          <div>
+            <span>Nivel seleccionado</span>
+            <strong>{{ selectedLevel }}</strong>
+          </div>
+
+          <div>
+            <span>Nivel estimado</span>
+            <strong>{{ estimatedLevel() }}</strong>
+          </div>
+
+          <div>
+            <span>Fecha de evaluación</span>
+            <strong>
+              {{ completedAt() | date: 'dd/MM/yyyy HH:mm' }}
+            </strong>
+          </div>
+        </div>
 
         <button
           type="button"

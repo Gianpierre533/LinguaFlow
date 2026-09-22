@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PlacementAssessment;
+use App\Models\PlacementQuestion;
 use Illuminate\Http\Request;
 
 class PlacementAssessmentController extends Controller
@@ -20,25 +21,46 @@ class PlacementAssessmentController extends Controller
                 'string',
                 'in:A1,A2,B1,B2,C1,C2',
             ],
-            'score' => [
-                'required',
-                'integer',
-                'min:0',
-            ],
-            'total_questions' => [
-                'required',
-                'integer',
-                'min:1',
-            ],
             'answers' => [
                 'required',
                 'array',
+                'min:1',
+            ],
+            'answers.*.question_id' => [
+                'required',
+                'integer',
+                'exists:placement_questions,id',
+            ],
+            'answers.*.selected_answer' => [
+                'required',
+                'integer',
+                'min:0',
+                'max:3',
             ],
         ]);
 
-        $percentage = (
-            $validated['score'] / $validated['total_questions']
-        ) * 100;
+        $questionIds = collect($validated['answers'])
+            ->pluck('question_id');
+
+        $questions = PlacementQuestion::query()
+            ->whereIn('id', $questionIds)
+            ->where('language', $validated['language'])
+            ->where('level', $validated['selected_level'])
+            ->where('is_active', true)
+            ->get()
+            ->keyBy('id');
+
+        $score = collect($validated['answers'])
+            ->filter(function (array $answer) use ($questions): bool {
+                $question = $questions->get($answer['question_id']);
+
+                return $question !== null &&
+                    $question->correct_answer === $answer['selected_answer'];
+            })
+            ->count();
+
+        $totalQuestions = count($validated['answers']);
+        $percentage = ($score / $totalQuestions) * 100;
 
         $estimatedLevel = match (true) {
             $percentage >= 90 => 'B2',
@@ -53,8 +75,8 @@ class PlacementAssessmentController extends Controller
                 'language' => $validated['language'],
                 'selected_level' => $validated['selected_level'],
                 'estimated_level' => $estimatedLevel,
-                'score' => $validated['score'],
-                'total_questions' => $validated['total_questions'],
+                'score' => $score,
+                'total_questions' => $totalQuestions,
                 'answers' => $validated['answers'],
                 'completed_at' => now(),
             ]);
