@@ -162,17 +162,160 @@ class PlacementQuestionSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-        ];
+                ];
 
-        foreach ($questions as $question) {
-            DB::table('placement_questions')->updateOrInsert(
-                [
-                    'language' => $question['language'],
-                    'level' => $question['level'],
-                    'question' => $question['question'],
-                ],
-                $question
-            );
-        }
+        $questions = array_merge($questions, [
+            [
+                'language' => 'ingles',
+                'level' => 'A2',
+                'category' => 'gramatica',
+                'question' => 'Completa: “She ___ to work by bus”.',
+                'options' => json_encode(['go', 'goes', 'going', 'gone']),
+                'correct_answer' => 1,
+                'explanation' => 'Con She se utiliza goes.',
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'language' => 'ingles',
+                'level' => 'A2',
+                'category' => 'gramatica',
+                'question' => '¿Cuál es el pasado de “buy”?',
+                'options' => json_encode(['Buyed', 'Bought', 'Buying', 'Buys']),
+                'correct_answer' => 1,
+                'explanation' => 'Bought es el pasado irregular de buy.',
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'language' => 'ingles',
+                'level' => 'A2',
+                'category' => 'vocabulario',
+                'question' => '¿Qué significa “expensive”?',
+                'options' => json_encode(['Barato', 'Rápido', 'Caro', 'Pequeño']),
+                'correct_answer' => 2,
+                'explanation' => 'Expensive significa caro.',
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'language' => 'ingles',
+                'level' => 'A2',
+                'category' => 'gramatica',
+                'question' => 'Completa: “I have ___ finished my homework”.',
+                'options' => json_encode(['yet', 'already', 'ever', 'never']),
+                'correct_answer' => 1,
+                'explanation' => 'Already se usa para indicar que algo ya ocurrió.',
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'language' => 'ingles',
+                'level' => 'A2',
+                'category' => 'comprension',
+                'question' => '“Tom is taller than John”. ¿Qué significa?',
+                'options' => json_encode([
+                    'Tom es más bajo que John',
+                    'Tom es más alto que John',
+                    'John es más rápido que Tom',
+                    'Tom y John tienen la misma altura',
+                ]),
+                'correct_answer' => 1,
+                'explanation' => 'Taller than significa más alto que.',
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'language' => 'ingles',
+                'level' => 'A2',
+                'category' => 'gramatica',
+                'question' => 'Completa: “There ___ any milk in the fridge”.',
+                'options' => json_encode(['isn’t', 'aren’t', 'don’t', 'doesn’t']),
+                'correct_answer' => 0,
+                'explanation' => 'Milk es incontable, por eso se usa isn’t.',
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'language' => 'ingles',
+                'level' => 'A2',
+                'category' => 'vocabulario',
+                'question' => '¿Qué significa “borrow”?',
+                'options' => json_encode([
+                    'Prestar algo',
+                    'Tomar prestado',
+                    'Comprar algo',
+                    'Romper algo',
+                ]),
+                'correct_answer' => 1,
+                'explanation' => 'Borrow significa tomar prestado.',
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'language' => 'ingles',
+                'level' => 'A2',
+                'category' => 'gramatica',
+                'question' => 'Completa: “If it rains, I ___ at home”.',
+                'options' => json_encode(['stay', 'stayed', 'staying', 'stays']),
+                'correct_answer' => 0,
+                'explanation' => 'En este caso se usa stay después de I.',
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'language' => 'ingles',
+                'level' => 'A2',
+                'category' => 'comprension',
+                'question' => '“I have lived here for two years”. ¿Qué significa?',
+                'options' => json_encode([
+                    'Viví aquí hace dos años',
+                    'Vivo aquí desde hace dos años',
+                    'Viviré aquí dos años',
+                    'No vivo aquí',
+                ]),
+                'correct_answer' => 1,
+                'explanation' => 'La frase indica una acción que comenzó en el pasado y continúa.',
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'language' => 'ingles',
+                'level' => 'A2',
+                'category' => 'gramatica',
+                'question' => 'Selecciona la opción correcta: “I ___ watch TV yesterday”.',
+                'options' => json_encode([
+                    'don’t',
+                    'doesn’t',
+                    'didn’t',
+                    'not',
+                ]),
+                'correct_answer' => 2,
+                'explanation' => 'Para negar en pasado se utiliza didn’t.',
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+
+       foreach ($questions as $question) {
+    DB::table('placement_questions')->updateOrInsert(
+        [
+            'language' => $question['language'],
+            'level' => $question['level'],
+            'question' => $question['question'],
+        ],
+        $question
+    );
+}
     }
 }
