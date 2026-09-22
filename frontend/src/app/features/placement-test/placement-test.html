@@ -39,7 +39,7 @@
         <div class="answers">
           @for (
             option of questions[currentQuestion()].options;
-            track option;
+            track index;
             let index = $index
           ) {
             <button
@@ -64,19 +64,27 @@
         <button
           type="button"
           class="next-button"
-          [disabled]="selectedAnswer() === null"
+          [disabled]="selectedAnswer() === null || saving()"
           (click)="nextQuestion()"
         >
           <span>
-            {{
-              currentQuestion() === questions.length - 1
-                ? 'Ver resultado'
-                : 'Siguiente pregunta'
-            }}
+            @if (saving()) {
+              Guardando resultado...
+            } @else {
+              {{
+                currentQuestion() === questions.length - 1
+                  ? 'Ver resultado'
+                  : 'Siguiente pregunta'
+              }}
+            }
           </span>
 
           <span>→</span>
         </button>
+
+        @if (saveError()) {
+          <p class="save-error">{{ saveError() }}</p>
+        }
       </section>
     } @else {
       <section class="result-section">

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-
+  
 export interface RegisterData {
   name: string;
   email: string;
@@ -38,15 +38,39 @@ export interface LanguageResponse {
     level: string;
   };
 }
+export interface PlacementAssessmentData {
+  language: string;
+  selected_level: string;
+  score: number;
+  total_questions: number;
+  answers: number[];
+}
+
+export interface PlacementAssessmentResponse {
+  message: string;
+  assessment: {
+    id: number;
+    language: string;
+    selected_level: string;
+    estimated_level: string;
+    score: number;
+    total_questions: number;
+    answers: number[];
+    completed_at: string;
+  };
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private readonly apiUrl = 'http://localhost:8000/api';
+
   private readonly tokenKey = 'linguaflow_token';
+
   private readonly languageKey = 'linguaflow_language';
-private readonly levelKey = 'linguaflow_level'; 
+
+ private readonly levelKey = 'linguaflow_level'; 
 
   constructor(private readonly http: HttpClient) {}
 
@@ -79,6 +103,19 @@ private readonly levelKey = 'linguaflow_level';
         localStorage.setItem(this.levelKey, data.level);
       })
     );
+}
+savePlacementAssessment(
+  data: PlacementAssessmentData
+): Observable<PlacementAssessmentResponse> {
+  const headers = new HttpHeaders({
+    Authorization: `Bearer ${this.getToken()}`
+  });
+
+  return this.http.post<PlacementAssessmentResponse>(
+    `${this.apiUrl}/placement-assessments`,
+    data,
+    { headers }
+  );
 }
 
   getToken(): string | null {

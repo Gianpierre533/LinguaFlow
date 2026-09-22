@@ -40,6 +40,10 @@ protected readonly selectedLanguage =
 protected readonly selectedLevel =
   this.authService.getSelectedLevel() ?? 'A1';
 
+  protected readonly answers = signal<number[]>([]);
+protected readonly saving = signal(false);
+protected readonly saveError = signal('');
+
   private readonly router = inject(Router);
 
   protected readonly currentQuestion = signal(0);
@@ -157,22 +161,55 @@ private loadQuestions(): Question[] {
   }
 
   protected nextQuestion(): void {
-    const answer = this.selectedAnswer();
+  const answer = this.selectedAnswer();
 
-    if (answer === null) {
-      return;
-    }
+  if (answer === null) {
+    return;
+  }
 
-    if (answer === this.questions[this.currentQuestion()].correctAnswer) {
-      this.score.update((value) => value + 1);
-    }
+  const current = this.questions[this.currentQuestion()];
+  const isCorrect = answer === current.correctAnswer;
+  const updatedScore = this.score() + (isCorrect ? 1 : 0);
+  const updatedAnswers = [...this.answers(), answer];
 
-    if (this.currentQuestion() < this.questions.length - 1) {
-      this.currentQuestion.update((value) => value + 1);
-      this.selectedAnswer.set(null);
-    } else {
-      this.finished.set(true);
-    }
+  this.score.set(updatedScore);
+  this.answers.set(updatedAnswers);
+
+  if (this.currentQuestion() < this.questions.length - 1) {
+    this.currentQuestion.update((value) => value + 1);
+    this.selectedAnswer.set(null);
+    return;
+  }
+
+  this.saveAssessment(updatedScore, updatedAnswers);
+}
+
+  private saveAssessment(
+    finalScore: number,
+    finalAnswers: number[]
+  ): void {
+    this.saving.set(true);
+    this.saveError.set('');
+
+    this.authService.savePlacementAssessment({
+      language: this.selectedLanguage,
+      selected_level: this.selectedLevel,
+      score: finalScore,
+      total_questions: this.questions.length,
+      answers: finalAnswers,
+    }).subscribe({
+      next: () => {
+        this.saving.set(false);
+        this.finished.set(true);
+      },
+      error: (error) => {
+        this.saving.set(false);
+        this.saveError.set(
+          error.error?.message ??
+          'No se pudo guardar la evaluación.'
+        );
+      },
+    });
   }
 
   protected finishTest(): void {

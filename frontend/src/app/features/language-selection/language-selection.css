@@ -511,3 +511,280 @@ button:hover::after {
     left: 140%;
   }
 }
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.option-card,
+.level-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 1px solid #d2dfd8;
+  border-radius: 1rem;
+  background: #fbfdfc;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.option-card:hover,
+.level-card:hover {
+  border-color: #18a66a;
+  background: #f0faf5;
+  transform: translateY(-2px);
+}
+
+.option-card:has(input:checked),
+.level-card:has(input:checked) {
+  border-color: #18a66a;
+  background: #ddf7ea;
+  box-shadow: 0 0 0 3px rgb(24 166 106 / 12%);
+}
+
+.option-card input,
+.level-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.option-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.8rem;
+  background: white;
+  font-size: 1.35rem;
+}
+
+.option-content {
+  flex: 1;
+}
+
+.option-content strong,
+.option-content small {
+  display: block;
+}
+
+.option-content strong {
+  color: #263b34;
+  font-size: 0.9rem;
+}
+
+.option-content small {
+  margin-top: 0.2rem;
+  color: #718078;
+  font-size: 0.75rem;
+}
+
+.checkmark {
+  display: grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1px solid #b8cbc0;
+  border-radius: 50%;
+  color: transparent;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.option-card:has(input:checked) .checkmark,
+.level-card:has(input:checked) .checkmark {
+  border-color: #18a66a;
+  background: #18a66a;
+  color: white;
+}
+
+.level-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.level-card {
+  padding: 0.85rem 1rem;
+}
+
+.level-badge {
+  display: grid;
+  place-items: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 0.8rem;
+  background: #0b3b2e;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.level-card:has(input:checked) .level-badge {
+  background: #18a66a;
+}
+
+@media (max-width: 520px) {
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .option-card,
+  .level-card {
+    padding: 0.85rem;
+  }
+}
+.option-card,
+.level-card {
+  animation: option-enter 0.55s ease both;
+}
+
+.option-card:nth-child(1),
+.level-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.option-card:nth-child(2),
+.level-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.option-card:nth-child(3),
+.level-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.option-card:nth-child(4),
+.level-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.option-card:nth-child(5),
+.level-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.option-card:nth-child(6),
+.level-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.option-icon {
+  transition: transform 0.35s ease;
+}
+
+.option-card:hover .option-icon {
+  animation: icon-bounce 0.6s ease;
+  transform: rotate(-6deg) scale(1.12);
+}
+
+.option-card:has(input:checked) .option-icon {
+  animation: selected-pop 0.45s ease;
+}
+
+.level-badge {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.level-card:hover .level-badge {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.level-card:has(input:checked) .level-badge {
+  animation: selected-pop 0.45s ease;
+}
+
+.checkmark {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.option-card:has(input:checked) .checkmark,
+.level-card:has(input:checked) .checkmark {
+  animation: check-in 0.35s ease;
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgb(255 255 255 / 28%),
+    transparent
+  );
+  content: "";
+  transform: skewX(-20deg);
+}
+
+button:hover::after {
+  animation: button-shine 0.8s ease;
+}
+
+@keyframes option-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.8rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes icon-bounce {
+  0%,
+  100% {
+    transform: rotate(0) scale(1);
+  }
+
+  45% {
+    transform: rotate(-8deg) scale(1.16);
+  }
+}
+
+@keyframes selected-pop {
+  0% {
+    transform: scale(0.8);
+  }
+
+  70% {
+    transform: scale(1.16);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes check-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-45deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes button-shine {
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 140%;
+  }
+}
