@@ -1,0 +1,261 @@
+:host {
+  display: block;
+}
+
+.test-page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background:
+    radial-gradient(circle at 90% 0%, rgb(139 224 181 / 24%), transparent 25rem),
+    #f6f8f7;
+  color: #0b3b2e;
+}
+
+.test-card {
+  width: min(100%, 680px);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border: 1px solid rgb(11 59 46 / 10%);
+  border-radius: 2rem;
+  background: rgb(255 255 255 / 95%);
+  box-shadow: 0 2rem 5rem rgb(11 59 46 / 12%);
+  animation: card-enter 0.7s ease both;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #18a66a;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+  color: #718078;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.progress-track {
+  height: 0.45rem;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  border-radius: 999px;
+  background: #e2eee8;
+}
+
+.progress-value {
+  height: 100%;
+  border-radius: inherit;
+  background: #18a66a;
+  transition: width 0.45s ease;
+}
+
+.test-header h1,
+.result-section h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.06em;
+}
+
+.test-header p,
+.result-section p {
+  margin: 1rem 0 0;
+  color: #64756e;
+  line-height: 1.6;
+}
+
+.question-section {
+  margin-top: 2.5rem;
+}
+
+.question-number {
+  display: grid;
+  place-items: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-bottom: 1rem;
+  border-radius: 0.9rem;
+  background: #ddf7ea;
+  color: #18a66a;
+  font-weight: 900;
+}
+
+.question-section h2 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  letter-spacing: -0.04em;
+}
+
+.answers {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.answer-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #d2dfd8;
+  border-radius: 1rem;
+  background: #fbfdfc;
+  color: #263b34;
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.answer-card:hover {
+  border-color: #18a66a;
+  background: #f0faf5;
+  transform: translateX(4px);
+}
+
+.answer-card.selected {
+  border-color: #18a66a;
+  background: #ddf7ea;
+  box-shadow: 0 0 0 3px rgb(24 166 106 / 12%);
+  animation: answer-selected 0.35s ease;
+}
+
+.answer-letter {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.65rem;
+  background: white;
+  color: #18a66a;
+  font-weight: 900;
+}
+
+.answer-check {
+  margin-left: auto;
+  color: #18a66a;
+  font-size: 1.2rem;
+}
+
+.next-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 3.5rem;
+  margin-top: 2rem;
+  padding: 0.8rem 1.3rem;
+  border: 0;
+  border-radius: 999px;
+  background: #18a66a;
+  color: white;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.next-button:hover:not(:disabled) {
+  background: #0b3b2e;
+  box-shadow: 0 0.8rem 1.5rem rgb(11 59 46 / 18%);
+  transform: translateY(-3px);
+}
+
+.next-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.result-section {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.result-icon {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: #18a66a;
+  color: white;
+  font-size: 2rem;
+  font-weight: 900;
+  animation: result-pop 0.6s ease both;
+}
+
+.result-level {
+  display: grid;
+  gap: 0.4rem;
+  margin: 2rem 0;
+  padding: 1.25rem;
+  border-radius: 1.2rem;
+  background: #ddf7ea;
+}
+
+.result-level span {
+  color: #64756e;
+  font-size: 0.85rem;
+}
+
+.result-level strong {
+  color: #0b3b2e;
+  font-size: 1.35rem;
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1.2rem) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes answer-selected {
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes result-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-20deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .test-page {
+    padding: 1rem;
+  }
+
+  .test-card {
+    border-radius: 1.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}

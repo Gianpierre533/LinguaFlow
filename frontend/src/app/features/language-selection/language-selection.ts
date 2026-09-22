@@ -30,7 +30,7 @@ export class LanguageSelection {
 
     this.authService.saveLanguage(this.languageForm.getRawValue()).subscribe({
       next: () => {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/placement-test']);
       },
       error: (error) => {
         this.error.set(

@@ -6,6 +6,7 @@ import { Dashboard } from './features/dashboard/dashboard';
 import { LanguageSelection } from './features/language-selection/language-selection';
 import { Landing } from './features/landing/landing';
 import { authGuard } from './core/guards/auth-guard';
+import { PlacementTest } from './features/placement-test/placement-test';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,11 @@ export const routes: Routes = [
     component: LanguageSelection,
     canActivate: [authGuard]
   },
+  {
+  path: 'placement-test',
+  component: PlacementTest,
+  canActivate: [authGuard]
+},
   {
     path: 'dashboard',
     component: Dashboard,

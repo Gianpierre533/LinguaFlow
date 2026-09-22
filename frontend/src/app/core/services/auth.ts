@@ -45,6 +45,8 @@ export interface LanguageResponse {
 export class AuthService {
   private readonly apiUrl = 'http://localhost:8000/api';
   private readonly tokenKey = 'linguaflow_token';
+  private readonly languageKey = 'linguaflow_language';
+private readonly levelKey = 'linguaflow_level'; 
 
   constructor(private readonly http: HttpClient) {}
 
@@ -61,16 +63,23 @@ export class AuthService {
   }
 
   saveLanguage(data: LanguageData): Observable<LanguageResponse> {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getToken()}`
-    });
+  const headers = new HttpHeaders({
+    Authorization: `Bearer ${this.getToken()}`
+  });
 
-    return this.http.post<LanguageResponse>(
+  return this.http
+    .post<LanguageResponse>(
       `${this.apiUrl}/user-languages`,
       data,
       { headers }
+    )
+    .pipe(
+      tap(() => {
+        localStorage.setItem(this.languageKey, data.language);
+        localStorage.setItem(this.levelKey, data.level);
+      })
     );
-  }
+}
 
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
@@ -79,10 +88,19 @@ export class AuthService {
   isAuthenticated(): boolean {
     return this.getToken() !== null;
   }
+  getSelectedLanguage(): string | null {
+  return localStorage.getItem(this.languageKey);
+}
+
+getSelectedLevel(): string | null {
+  return localStorage.getItem(this.levelKey);
+}
 
   logout(): void {
-    localStorage.removeItem(this.tokenKey);
-  }
+  localStorage.removeItem(this.tokenKey);
+  localStorage.removeItem(this.languageKey);
+  localStorage.removeItem(this.levelKey);
+}
 
   private saveToken(token: string): void {
     localStorage.setItem(this.tokenKey, token);
